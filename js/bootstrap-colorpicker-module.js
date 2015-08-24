@@ -10,6 +10,7 @@ angular.module('colorpicker.module', [])
           return elem;
         },
         getOffset: function (elem, fixedPosition) {
+          var rect = elem.getBoundingClientRect();
           var
               x = 0,
               y = 0,
@@ -27,6 +28,8 @@ angular.module('colorpicker.module', [])
             }
             elem = elem.offsetParent;
           }
+          x = rect.left;
+          y = rect.top;
           return {
             top: y,
             left: x,
